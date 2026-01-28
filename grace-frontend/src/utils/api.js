@@ -44,7 +44,7 @@ export const getPage = (slug) => api.get(`/${slug}/`);
 export const createPage = (pageData) => api.post("/admin/create/", pageData);
 
 // Admin: Update page (requires authentication)
-export const updatePage = (pageId, pageData) => 
+export const updatePage = (pageId, pageData) =>
   api.put(`/admin/update/${pageId}/`, pageData);
 
 // Admin: Delete page (requires authentication)
@@ -62,7 +62,7 @@ export const getPageContent = (slug) => api.get(`/${slug}/`);
 // ============================================
 
 // Login user
-export const login = (username, password) => 
+export const login = (username, password) =>
   api.post("/login/", { username, password });
 
 // Register new user (Admin only)

@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import api from "../utils/api";
 import { SiteContext } from "../context/SiteContext";
-import Hero from "../components/Hero";
+import Hero from "@/components/Hero";
 import Section from "../components/Section";
 
 export default function Home() {

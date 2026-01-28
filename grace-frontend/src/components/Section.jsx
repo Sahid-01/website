@@ -4,52 +4,40 @@ export default function Section({ data }) {
   return (
     <section className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        {/* Features Section */}
-        {data.section_type === 'features' && (
-          <div>
-            <h2 className="text-4xl font-bold text-center mb-12">Our Features</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {data.items.map((item, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                  {item.icon && <div className="text-5xl mb-4">{item.icon}</div>}
-                  {item.title && <h3 className="text-2xl font-bold mb-3">{item.title}</h3>}
-                  {item.description && <p className="text-gray-600">{item.description}</p>}
-                </div>
-              ))}
+        {/* Intro Section */}
+        {data.section_type === 'intro' && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Content Column */}
+            <div className="space-y-6">
+              {data.items[0]?.title && (
+                <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight font-sans">{data.items[0].title}</h2>
+              )}
+              {data.items[0]?.subtitle && (
+                <h3 className="text-xl lg:text-2xl text-gray-600 font-sans">{data.items[0].subtitle}</h3>
+              )}
+              {data.items[0]?.description && (
+                <p className="text-lg text-gray-700 leading-relaxed font-sans">{data.items[0].description}</p>
+              )}
             </div>
-          </div>
-        )}
-
-        {/* About Section */}
-        {data.section_type === 'about' && (
-          <div className="bg-white p-12 rounded-lg shadow-md">
-            {data.items[0]?.title && (
-              <h2 className="text-4xl font-bold mb-4 text-center">{data.items[0].title}</h2>
-            )}
-            {data.items[0]?.subtitle && (
-              <h3 className="text-xl text-gray-600 mb-6 text-center">{data.items[0].subtitle}</h3>
-            )}
-            {data.items[0]?.description && (
-              <p className="text-gray-700 leading-relaxed text-lg">{data.items[0].description}</p>
-            )}
-            {data.items[0]?.button_text && (
-              <div className="text-center mt-8">
-                <a
-                  href={data.items[0].button_link || '#'}
-                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-200"
-                >
-                  {data.items[0].button_text}
-                </a>
+            
+            {/* Image Column */}
+            {data.items[0]?.image && (
+              <div className="order-first lg:order-last">
+                <img 
+                  src={data.items[0].image} 
+                  alt={data.items[0].title} 
+                  className="w-full h-auto rounded-lg object-cover"
+                />
               </div>
             )}
           </div>
-        )}
+        )} 
 
         {/* Services Section */}
         {data.section_type === 'services' && (
           <div>
             <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {data.items.map((item, idx) => (
                 <div key={idx} className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
                   {item.image && (
